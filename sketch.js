@@ -1,22 +1,43 @@
+// All slider values stored here
+let inputData = {
+  social: 0,
+  entertainment: 0,
+  productivity: 0
+};
+
 function setup() {
-  noCanvas(); // 当前不需要画布
+  noCanvas(); // 页面设计不需要画布
 
-  const submitBtn = document.getElementById("submitBtn");
+  // sliders
+  const social = document.getElementById("socialSlider");
+  const ent = document.getElementById("entSlider");
+  const prod = document.getElementById("prodSlider");
 
-  submitBtn.addEventListener("click", () => {
-    let time = document.getElementById("timeInput").value;
-    let app = document.getElementById("appInput").value;
+  // number displays
+  const socialVal = document.getElementById("socialVal");
+  const entVal = document.getElementById("entVal");
+  const prodVal = document.getElementById("prodVal");
 
-    if (time === "" || app === "") {
-      document.getElementById("result").innerHTML =
-        "<p style='color:red;'>请先填写完整信息！</p>";
-      return;
-    }
-
-    document.getElementById("result").innerHTML = `
-      <p><strong>提交成功！</strong></p>
-      <p>你今日使用手机 ${time} 分钟。</p>
-      <p>最常使用的 App：<strong>${app}</strong></p>
-    `;
+  // Update values on slide
+  social.addEventListener("input", () => {
+    inputData.social = Number(social.value);
+    socialVal.innerText = inputData.social.toFixed(1) + " h";
+    console.log(inputData);
   });
+
+  ent.addEventListener("input", () => {
+    inputData.entertainment = Number(ent.value);
+    entVal.innerText = inputData.entertainment.toFixed(1) + " h";
+    console.log(inputData);
+  });
+
+  prod.addEventListener("input", () => {
+    inputData.productivity = Number(prod.value);
+    prodVal.innerText = inputData.productivity.toFixed(1) + " h";
+    console.log(inputData);
+  });
+}
+
+function draw() {
+  // 未来视觉输出将用 inputData
 }
