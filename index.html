@@ -1,32 +1,54 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Screen Time Input</title>
-
-  <!-- 这些是 CDN，不需要本地文件 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
-
+  <title>Life–Screen Dialogue</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Load p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 </head>
+
 <body>
   <main>
-    <div id="title">请输入你的屏幕时间信息</div>
+    <h1>Life–Screen Dialogue</h1>
 
-    <div class="input-block">
-      <label>今日总屏幕时间（分钟）</label>
-      <input id="timeInput" type="number" placeholder="例如：120">
+    <!-- Social -->
+    <div class="block">
+      <label>Social</label>
+      <p class="desc">Messaging, social networking</p>
+
+      <div class="value" id="socialVal">0 h</div>
+
+      <input type="range" id="socialSlider" min="0" max="24" step="0.1" value="0">
+      <div class="range-labels"><span>0</span><span>24h</span></div>
     </div>
 
-    <div class="input-block">
-      <label>最常使用的 App</label>
-      <input id="appInput" type="text" placeholder="例如：Instagram">
+    <!-- Entertainment -->
+    <div class="block">
+      <label>Entertainment</label>
+      <p class="desc">Video, games, music</p>
+
+      <div class="value" id="entVal">0 h</div>
+
+      <input type="range" id="entSlider" min="0" max="24" step="0.1" value="0">
+      <div class="range-labels"><span>0</span><span>24h</span></div>
     </div>
 
-    <button id="submitBtn">提交</button>
+    <!-- Productivity -->
+    <div class="block">
+      <label>Productivity</label>
+      <p class="desc">Reading, writing, work</p>
 
-    <div id="result"></div>
+      <div class="value" id="prodVal">0 h</div>
+
+      <input type="range" id="prodSlider" min="0" max="24" step="0.1" value="0">
+      <div class="range-labels"><span>0</span><span>24h</span></div>
+    </div>
+
+    <p class="note">
+      Your input is used only for this artwork and is not stored or shared.
+    </p>
   </main>
 
   <script src="sketch.js"></script>
